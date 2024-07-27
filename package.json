@@ -16,11 +16,18 @@
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
     "husky": "^4.3.8",
-    "jest": "^29.7.0"
+    "jest": "^29.7.0",
+    "lint-staged": "^10.2.11"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint && npm test"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "*.js" : [
+      "eslint",
+      "jest --findRelatedTests"
+    ]
   }
 }
